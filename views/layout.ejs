@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manager ERP</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <header class="top-nav">
+    <div class="top-nav-left">
+      <span class="navbar-title">Manager ERP</span>
+    </div>
+    <div class="top-nav-right">
+      <span class="business-name">Company Default Business</span>
+    </div>
+  </header>
+
+  <!-- Wrapper: Sidebar and Main Content -->
+  <div class="wrapper">
+    <aside class="sidebar">
+      <ul class="sidebar-menu">
+        <li><a href="/dashboard"><i class="fa fa-chart-line"></i> <span>Dashboard</span></a></li>
+        <li><a href="/teamassignment"><i class="fa fa-clipboard-list"></i> <span>Team Assignments</span></a></li>
+        <li><a href="/employees"><i class="fa fa-users"></i> <span>Employees</span></a></li>
+        <li><a href="/projects"><i class="fa fa-briefcase"></i> <span>Projects</span></a></li>
+        <li><a href="/clients"><i class="fa fa-user-friends"></i> <span>Clients</span></a></li>
+        <li><a href="/quotations"><i class="fa fa-file-alt"></i> <span>Quotations</span></a></li>
+        <li><a href="/invoices"><i class="fa fa-file-invoice-dollar"></i> <span>Invoices</span></a></li>
+        <li><a href="/purchaseOrders"><i class="fa fa-box-open"></i> <span>POs</span></a></li>
+        <li><a href="/expenses"><i class="fa fa-money-bill-wave"></i> <span>Expenses</span></a></li>
+        <li><a href="/attendance"><i class="fa fa-user-check"></i> <span>Attendance</span></a></li>
+        <li><a href="/assets"><i class="fa fa-cogs"></i> <span>Fixed Assets</span></a></li>
+        <li><a href="/todo"><i class="fa fa-tasks"></i> <span>To-Do</span></a></li>
+        <li><a href="/reports"><i class="fa fa-chart-pie"></i> <span>Reports</span></a></li>
+        <li><a href="/meetings"><i class="fa fa-handshake"></i> <span>Meetings</span></a></li>
+        <li><a href="/settings"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+        <li><a href="/logout"><i class="fa fa-sign-out-alt"></i> <span>Logout</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <%- body %>
+    </main>
+  </div>
+
+  <footer>
+    <p>© 2025 Manager ERP. All rights reserved.</p>
+  </footer>
+</body>
+</html>

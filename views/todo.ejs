@@ -1,0 +1,21 @@
+<h2>To-Do List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Due Date</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% todos.forEach(task => { %>
+      <tr>
+        <td><%= task.task %></td>
+        <td><%= task.due_date %></td>
+        <td><%= task.status %></td>
+        <td><a href="#">View</a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

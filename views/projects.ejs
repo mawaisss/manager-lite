@@ -1,0 +1,26 @@
+<h2>Projects</h2>
+<a href="/projects/new">Add New Project</a>
+<table>
+  <thead>
+    <tr>
+      <th>Project No</th>
+      <th>Project Name</th>
+      <th>Client</th>
+      <th>Status</th>
+      <th>Location</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% projects.forEach(p => { %>
+      <tr>
+        <td><%= "P-" + ("0000" + p.id).slice(-4) %></td>
+        <td><%= p.name %></td>
+        <td><%= p.client %></td>
+        <td><%= p.status %></td>
+        <td><%= p.location %></td>
+        <td><a href="/projects/edit/<%= p.id %>">Edit</a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

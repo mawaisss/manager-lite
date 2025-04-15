@@ -1,0 +1,19 @@
+<h2>Add New Quotation</h2>
+<form method="POST" action="/quotations/new">
+  <label>Quotation Number:</label><input type="text" name="number" required/><br/>
+  <label>Client:</label>
+  <select name="client" required>
+    <% clients.forEach(c => { %>
+       <option value="<%= c.name %>"><%= c.name %></option>
+    <% }) %>
+  </select><br/>
+  <label>Project:</label>
+  <select name="project" required>
+    <% projects.forEach(p => { %>
+       <option value="<%= p.name %>"><%= p.name %></option>
+    <% }) %>
+  </select><br/>
+  <label>Date:</label><input type="date" name="date" required/><br/>
+  <label>Total:</label><input type="number" name="total" required/><br/>
+  <button type="submit">Add Quotation</button>
+</form>

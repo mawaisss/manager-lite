@@ -1,0 +1,17 @@
+<h2>Edit Project</h2>
+<form method="POST" action="/projects/edit/<%= project.id %>">
+  <label>Project Name:</label><input type="text" name="name" value="<%= project.name %>" required/><br/>
+  <label>Client:</label>
+  <select name="client_id" required>
+    <% clients.forEach(client => { %>
+      <option value="<%= client.id %>" <%= client.name === project.client ? 'selected' : '' %>><%= client.name %></option>
+    <% }); %>
+  </select><br/>
+  <label>Status:</label>
+  <select name="status">
+    <option value="Active" <%= project.status === 'Active' ? 'selected' : '' %>>Active</option>
+    <option value="Completed" <%= project.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+  </select><br/>
+  <label>Location:</label><input type="text" name="location" value="<%= project.location %>" required/><br/>
+  <button type="submit">Update Project</button>
+</form>

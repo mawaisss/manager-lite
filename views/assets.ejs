@@ -1,0 +1,25 @@
+<h2>Fixed Assets</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Asset Name</th>
+      <th>Category</th>
+      <th>Serial No</th>
+      <th>Location</th>
+      <th>Condition</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% assets.forEach(asset => { %>
+      <tr>
+        <td><%= asset.name %></td>
+        <td><%= asset.category %></td>
+        <td><%= asset.serial_no %></td>
+        <td><%= asset.location %></td>
+        <td><%= asset.condition %></td>
+        <td><a href="#">View</a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

@@ -1,0 +1,157 @@
+<!-- Team Assignment Page (views/teamassignment.ejs) -->
+
+<h2>Team Assignment for <%= assignmentDate %></h2>
+
+<!-- Day Assignments Table -->
+<h3>Day Assignments - <%= assignmentDate %></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Client</th>
+      <th>Team</th>
+      <th># of People</th>
+      <th>Task</th>
+      <th>Drop By</th>
+      <th>Drop Time</th>
+      <th>Pick By</th>
+      <th>Pick Time</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (dayAssignments.length === 0) { %>
+      <tr><td colspan="10">No Day Assignments Found</td></tr>
+    <% } else { %>
+      <% dayAssignments.forEach(function(assignment) { %>
+        <tr>
+          <td><%= assignment.project %></td>
+          <td><%= assignment.client %></td>
+          <td><%= assignment.team %></td>
+          <td><%= assignment.numberOfPeople %></td>
+          <td><%= assignment.task %></td>
+          <td><%= assignment.dropBy %></td>
+          <td><%= assignment.dropTime %></td>
+          <td><%= assignment.pickBy %></td>
+          <td><%= assignment.pickTime %></td>
+          <td><!-- Actions placeholder --></td>
+        </tr>
+      <% }); %>
+    <% } %>
+  </tbody>
+</table>
+
+<!-- Night Assignments Table -->
+<h3>Night Assignments - <%= assignmentDate %></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Client</th>
+      <th>Team</th>
+      <th># of People</th>
+      <th>Task</th>
+      <th>Drop By</th>
+      <th>Drop Time</th>
+      <th>Pick By</th>
+      <th>Pick Time</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (nightAssignments.length === 0) { %>
+      <tr><td colspan="10">No Night Assignments Found</td></tr>
+    <% } else { %>
+      <% nightAssignments.forEach(function(assignment) { %>
+        <tr>
+          <td><%= assignment.project %></td>
+          <td><%= assignment.client %></td>
+          <td><%= assignment.team %></td>
+          <td><%= assignment.numberOfPeople %></td>
+          <td><%= assignment.task %></td>
+          <td><%= assignment.dropBy %></td>
+          <td><%= assignment.dropTime %></td>
+          <td><%= assignment.pickBy %></td>
+          <td><%= assignment.pickTime %></td>
+          <td><!-- Actions placeholder --></td>
+        </tr>
+      <% }); %>
+    <% } %>
+  </tbody>
+</table>
+
+<!-- New Team Assignment Form -->
+<div class="team-assignment-form">
+  <h3>New Team Assignment</h3>
+  <form method="POST" action="/teamassignment">
+    <div class="form-group">
+      <label for="assignment_date">Assignment Date:</label>
+      <input type="date" name="assignment_date" id="assignment_date" value="<%= assignmentDate %>" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="project_id">Project:</label>
+      <select name="project_id" id="project_id" required>
+        <% projects.forEach(function(project) { %>
+          <option value="<%= project.id %>"><%= project.name %></option>
+        <% }); %>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="task">Task:</label>
+      <input type="text" name="task" id="task" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="drop_by">Drop By:</label>
+      <select name="drop_by" id="drop_by" required>
+        <% dropEmployees.forEach(function(emp) { %>
+          <option value="<%= emp.name %>"><%= emp.name %></option>
+        <% }); %>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="drop_time">Drop Time:</label>
+      <input type="time" name="drop_time" id="drop_time" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="pick_by">Pick By:</label>
+      <select name="pick_by" id="pick_by" required>
+        <% dropEmployees.forEach(function(emp) { %>
+          <option value="<%= emp.name %>"><%= emp.name %></option>
+        <% }); %>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="pick_time">Pick Time:</label>
+      <input type="time" name="pick_time" id="pick_time" required>
+    </div>
+    
+    <div class="form-group">
+      <label>Team Members:</label><br/>
+      <% for (let role in groupedTeamMembers) { %>
+        <strong><%= role %>:</strong><br/>
+        <% groupedTeamMembers[role].forEach(function(member) { %>
+          <label>
+            <input type="checkbox" name="team_members" value="<%= member.name %>">
+            <%= member.name %>
+          </label><br/>
+        <% }); %>
+      <% } %>
+    </div>
+    
+    <div class="form-group">
+      <label for="shift">Shift:</label>
+      <select name="shift" id="shift" required>
+        <option value="Day">Day</option>
+        <option value="Night">Night</option>
+      </select>
+    </div>
+    
+    <button type="submit">Assign Team</button>
+  </form>
+</div>

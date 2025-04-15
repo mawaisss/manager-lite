@@ -1,0 +1,23 @@
+<h2>Invoices</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Invoice No</th>
+      <th>Client</th>
+      <th>Date</th>
+      <th>Total</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% invoices.forEach(inv => { %>
+      <tr>
+        <td><%= inv.number %></td>
+        <td><%= inv.client %></td>
+        <td><%= inv.date %></td>
+        <td><%= inv.total %></td>
+        <td><a href="#">View</a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

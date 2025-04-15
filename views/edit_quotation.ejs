@@ -1,0 +1,9 @@
+<h2>Edit Quotation</h2>
+<form method="POST" action="/quotations/edit/<%= quotation.id %>">
+  <label>Quotation Number:</label><input type="text" name="number" value="<%= quotation.number %>" required/><br/>
+  <label>Client:</label><input type="text" name="client" value="<%= quotation.client %>" required/><br/>
+  <label>Project:</label><input type="text" name="project" value="<%= quotation.project %>" required/><br/>
+  <label>Date:</label><input type="date" name="date" value="<%= quotation.date %>" required/><br/>
+  <label>Total:</label><input type="number" name="total" value="<%= quotation.total %>" required/><br/>
+  <button type="submit">Update Quotation</button>
+</form>

@@ -1,0 +1,24 @@
+<h2>Employees</h2>
+<a href="/employees/new">Add New Employee</a>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Balance</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% employees.forEach(emp => { %>
+      <tr>
+        <td><%= emp.name %></td>
+        <td><%= emp.role %></td>
+        <td><%= emp.balance %></td>
+        <td><%= emp.status %></td>
+        <td><a href="/employees/edit/<%= emp.id %>">Edit</a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

@@ -1,0 +1,32 @@
+<h2>Clients</h2>
+<a href="/clients/new">Add New Client</a>
+<table>
+  <thead>
+    <tr>
+      <th>Client No</th>
+      <th>Name</th>
+      <th>Company No</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Mobile</th>
+      <th>TRN</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% clients.forEach(c => { %>
+      <tr>
+        <td><%= "C-" + ("0000" + c.id).slice(-4) %></td>
+        <td><%= c.name %></td>
+        <td><%= c.company_no %></td>
+        <td><%= c.email %></td>
+        <td><%= c.phone %></td>
+        <td><%= c.mobile %></td>
+        <td><%= c.trn %></td>
+        <td><%= c.address %></td>
+        <td><a href="/clients/edit/<%= c.id %>">Edit</a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

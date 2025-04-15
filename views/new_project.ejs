@@ -1,0 +1,17 @@
+<h2>Add New Project</h2>
+<form method="POST" action="/projects/new">
+  <label>Project Name:</label><input type="text" name="name" required/><br/>
+  <label>Client:</label>
+  <select name="client_id" required>
+    <% clients.forEach(client => { %>
+      <option value="<%= client.id %>"><%= client.name %></option>
+    <% }); %>
+  </select><br/>
+  <label>Status:</label>
+  <select name="status">
+    <option value="Active">Active</option>
+    <option value="Completed">Completed</option>
+  </select><br/>
+  <label>Location:</label><input type="text" name="location" required/><br/>
+  <button type="submit">Add Project</button>
+</form>

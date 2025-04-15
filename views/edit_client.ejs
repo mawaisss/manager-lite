@@ -1,0 +1,11 @@
+<h2>Edit Client</h2>
+<form method="POST" action="/clients/edit/<%= client.id %>">
+  <label>Name:</label><input type="text" name="name" value="<%= client.name %>" required/><br/>
+  <label>Company No:</label><input type="text" name="company_no" value="<%= client.company_no %>" required/><br/>
+  <label>Email:</label><input type="email" name="email" value="<%= client.email %>" required/><br/>
+  <label>Phone:</label><input type="text" name="phone" value="<%= client.phone %>" required/><br/>
+  <label>Mobile:</label><input type="text" name="mobile" value="<%= client.mobile %>" required/><br/>
+  <label>TRN:</label><input type="text" name="trn" value="<%= client.trn %>" required/><br/>
+  <label>Address:</label><textarea name="address" required><%= client.address %></textarea><br/>
+  <button type="submit">Update Client</button>
+</form>
